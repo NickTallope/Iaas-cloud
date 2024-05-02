@@ -5,9 +5,9 @@ on:
       - main
 
 env:
-  PROJECT_ID: vocal-eon-416516
+  PROJECT_ID: maximal-ship-421811
   GAR_LOCATION: europe-west9
-  REPOSITORY: epita-examplye-register
+  REPOSITORY: epita-tp1-muchachos
   SERVICE: youtube-api-job
   REGION: europe-west9  
 
