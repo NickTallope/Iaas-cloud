@@ -41,10 +41,15 @@ Tous les jours, notre projet exécutera ses tâches de manière autonome en réc
 
 Cependant, nous pouvons également tester notre code en effectuant :
 
-- Récupération des données et traitement en local:
+- Récupération des données (lance l'api) :
    ```
-   make docker-run
+   make docker-run-api
    ```
+- Traiter les donéées (relancé toute les commandes précédentes excepté la dernière sur un autre terminal puis) :
+  ```
+  make docker-run-processing
+  ```
+
 
 - Push les images sur le cloud manuellement :
 
