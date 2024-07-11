@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  youtube-data-retrieval:
+    build: ./youtube-data-retrieval
+    environment:
+      - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
+    volumes:
+      - ./local_storage:/app/local_storage
+    depends_on:
+      - redis
+
+  youtube-data-processing:
+    build: ./youtube-data-processing
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=youtube_data
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+    volumes:
+      - ./local_storage:/app/local_storage
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: youtube_data
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  redis:
+    image: redis:latest
+
+  celery-beat:
+    build: 
+      context: .
+      dockerfile: Dockerfile-celery
+    command: celery -A celery_config beat --loglevel=info
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+
+volumes:
+  postgres_data:
