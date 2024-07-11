@@ -8,11 +8,11 @@ build-container:
 
 # Stop all running containers
 docker-stop:
-	docker stop $(docker ps -a -q)
+	docker stop $$(docker ps -a -q)
 
 # Remove all containers
 docker-clean:
-	docker rm $(docker ps -a -q)
+	docker rm $$(docker ps -a -q)
 
 docker-run:
 	docker-compose run youtube-data-retrieval python main.py
