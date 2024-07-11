@@ -14,8 +14,10 @@ docker-stop:
 docker-clean:
 	docker rm $$(docker ps -a -q)
 
-docker-run:
+docker-run-api:
 	docker-compose run youtube-data-retrieval python main.py
+
+docker-run-processing:
 	docker-compose run youtube-data-processing python main.py
 
 # Tag and push the Docker image to the Google Cloud Registry
