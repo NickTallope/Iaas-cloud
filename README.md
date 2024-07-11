@@ -3,6 +3,7 @@
 Ce projet a été effectué dans notre cursus scolaire, plus précisément dans le cours d'IaaS (Infrastructure-as-a-Service). L'objectif est de développer et de déployer un service pour récupérer et traiter les données de YouTube quotidiennement sur plusieurs chaînes YouTube.
 
 ## Contributeurs/Eleves
+
 - Ferroni Sandro
 - Gassem Aymen
 - Gravejal Paul
