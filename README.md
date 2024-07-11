@@ -61,7 +61,7 @@ Vous pouvez également exécuter les tâches manuellement :
 
 3. Pour push les images sur le cloud manuellement :
 
-   ````
+   ```
    make tag_image_retrevial
    make tag_image_processing
    ```
